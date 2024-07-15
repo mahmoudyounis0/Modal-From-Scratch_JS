@@ -1,11 +1,10 @@
-var arrayOfAllImages = Array.from(document.querySelectorAll('section .container figure img'))
-var clickedImage = document.querySelectorAll('section .container figure img');
-var layer = document.querySelector(".mylayer")
-var layerImage = document.querySelector(".mylayer figure img")
-var indexOfClickedImage;
-var nextArrow = document.querySelector('.fa-chevron-right');
-var prevArrow = document.querySelector('.fa-chevron-left');
-var exitmark = document.querySelector('.fa-xmark');
+ const arrayOfAllImages = Array.from(document.querySelectorAll('section .container figure img'));
+ const layer = document.querySelector(".mylayer");
+ const layerImage = document.querySelector(".mylayer figure img");
+ const nextArrow = document.querySelector('.fa-chevron-right');
+ const prevArrow = document.querySelector('.fa-chevron-left');
+ const exitmark = document.querySelector('.fa-xmark');
+ let indexOfClickedImage;
 
 
 
@@ -17,8 +16,8 @@ for (let i = 0; i < arrayOfAllImages.length; i++) {
         indexOfClickedImage = i;
     })
 }
-nextArrow.addEventListener("click", nextImage)
-prevArrow.addEventListener("click",prevImage)
+nextArrow.addEventListener("click", nextImage);
+prevArrow.addEventListener("click",prevImage);
 exitmark.addEventListener("click",exitlayer)
 
 
@@ -40,19 +39,13 @@ function exitlayer(){
     layer.classList.add("d-none");
 }
 
-document.addEventListener("keydown",function(e){
-    if (e.key=='ArrowRight') {
-        nextImage();
-    }
-    if (e.key=='ArrowLeft') {
-        prevImage();
-    }
-    if (e.key=='Escape') {
-        exitlayer();
-    }
-})
-layer.addEventListener('click',function(e){
-    if (e.target==layer) {
-        exitlayer();
-    }
-})
+document.addEventListener("keydown", (e) => {
+        if (layer.classList.contains("d-none")) return;
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') exitlayer();
+    });
+ layer.addEventListener('click', (e) => {
+        if (e.target === layer) exitlayer();
+    });
+
