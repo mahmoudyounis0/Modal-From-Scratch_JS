@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+i{
+    cursor: pointer;
+}
+section .container {
+    & figure {
+        & div.caption {
+            --gap: 10px;
+            bottom: var(--gap);
+            left: var(--gap);
+            right: var(--gap);
+            transform: translateY(calc(100% + var(--gap)));
+            -webkit-transform: translateY(calc(100% + var(--gap)));
+            -moz-transform: translateY(calc(100% + var(--gap)));
+            -ms-transform: translateY(calc(100% + var(--gap)));
+            -o-transform: translateY(calc(100% + var(--gap)));
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+        }
+
+        &:hover .caption {
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+        }
+    }
+}
