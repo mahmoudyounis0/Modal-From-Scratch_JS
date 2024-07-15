@@ -41,7 +41,6 @@ function exitlayer(){
 }
 
 document.addEventListener("keydown",function(e){
-    console.log(e);
     if (e.key=='ArrowRight') {
         nextImage();
     }
@@ -53,7 +52,6 @@ document.addEventListener("keydown",function(e){
     }
 })
 layer.addEventListener('click',function(e){
-    console.log(e);
     if (e.target==layer) {
         exitlayer();
     }
